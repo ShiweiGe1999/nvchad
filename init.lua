@@ -61,15 +61,5 @@ require("toggleterm").setup {
     },
   },
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 -- Map ]t to go to the next tab
 vim.api.nvim_set_keymap('n', ']t', ':tabnext<CR>', { noremap = true, silent = true })
-
->>>>>>> a8719e5 (2nd commit)
-=======
--- Map ]t to go to the next tab
-vim.api.nvim_set_keymap('n', ']t', ':tabnext<CR>', { noremap = true, silent = true })
-
->>>>>>> 3d1c7bf (2nd commit)
