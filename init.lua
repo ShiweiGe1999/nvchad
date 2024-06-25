@@ -64,4 +64,5 @@ require("toggleterm").setup {
 -- Map ]t to go to the next tab
 vim.api.nvim_set_keymap('n', ']t', ':tabnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '[t', ':tabnext<CR>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap("x", "<leader>fm", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "<leader>fs", ":sort<CR>", { noremap = true, silent = true })
