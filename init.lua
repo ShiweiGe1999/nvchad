@@ -62,7 +62,28 @@ require("toggleterm").setup {
   },
 }
 -- Map ]t to go to the next tab
-vim.api.nvim_set_keymap('n', ']t', ':tabnext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[t', ':tabnext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "<leader>fm", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "]t", ":tabnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[t", ":tabnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>fs", ":sort<CR>", { noremap = true, silent = true })
+
+require("completion").on_attach()
+local telescope = require "telescope"
+
+telescope.setup {
+  pickers = {
+    live_grep = {
+      additional_args = function(opts)
+        return { "--ignore-case" }
+      end,
+    },
+  },
+}
+
+require "formatter"
+-- Keybinding to format selected text in visual mode
+vim.api.nvim_set_keymap(
+  "v",
+  "<leader>fm",
+  '<cmd>lua require("formatter").format_selection()<CR>',
+  { noremap = true, silent = true }
+)

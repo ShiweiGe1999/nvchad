@@ -28,10 +28,10 @@ return {
         "typescript-language-server",
         "eslint-lsp",
         "eslint_d",
+        "tailwindcss-language-server",
       },
     },
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -52,5 +52,8 @@ return {
       open_mapping = [[F7]],
     },
     config = true,
+  },
+  {
+    "nvim-lua/completion-nvim",
   },
 }
