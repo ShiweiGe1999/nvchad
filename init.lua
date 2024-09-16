@@ -38,52 +38,15 @@ vim.schedule(function()
   require "mappings"
 end)
 
-require("toggleterm").setup {
-  size = 20,
-  open_mapping = [[<F7>]],
-  hide_numbers = true,
-  shade_filetypes = {},
-  shade_terminals = true,
-  shading_factor = 2,
-  start_in_insert = true,
-  insert_mappings = true,
-  terminal_mappings = true,
-  persist_size = true,
-  direction = "float",
-  close_on_exit = true,
-  shell = vim.o.shell,
-  float_opts = {
-    border = "curved",
-    winblend = 3,
-    highlights = {
-      border = "Normal",
-      background = "Normal",
-    },
-  },
-}
--- Map ]t to go to the next tab
-vim.api.nvim_set_keymap("n", "]t", ":tabnext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[t", ":tabnext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "<leader>fs", ":sort<CR>", { noremap = true, silent = true })
+-- local telescope = require "telescope"
+--
+-- telescope.setup {
+--   pickers = {
+--     live_grep = {
+--       additional_args = function(opts)
+--         return { "--ignore-case" }
+--       end,
+--     },
+--   },
+-- }
 
-require("completion").on_attach()
-local telescope = require "telescope"
-
-telescope.setup {
-  pickers = {
-    live_grep = {
-      additional_args = function(opts)
-        return { "--ignore-case" }
-      end,
-    },
-  },
-}
-
-require "formatter"
--- Keybinding to format selected text in visual mode
-vim.api.nvim_set_keymap(
-  "v",
-  "<leader>fm",
-  '<cmd>lua require("formatter").format_selection()<CR>',
-  { noremap = true, silent = true }
-)
