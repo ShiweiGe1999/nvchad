@@ -10,7 +10,7 @@ map({ "n", "v" }, "<leader>y", '"+y')
 map({ "n", "v" }, "<leader>Y", '"+Y')
 map({ "n", "v" }, "<leader>p", '"+p')
 map({ "n", "v" }, "<leader>P", '"+P')
-map({ "n", "i", "v" }, "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true })
+map({ "n", "v" }, "<leader>ft", ":ToggleTerm<CR>", { noremap = true, silent = true })
 
 map("n", "]t", ":tabnext<CR>")
 map("n", "[t", ":tabprevious<CR>")

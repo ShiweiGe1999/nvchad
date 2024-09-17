@@ -134,6 +134,11 @@ return {
             prompt_position = "top", -- Set the search input at the top
           },
           sorting_strategy = "ascending", -- Ensure results are ordered from top to bottom
+          mappings = {
+            n = {
+              ["q"] = actions.close
+            }
+          }
         },
         pickers = {
           live_grep = {
