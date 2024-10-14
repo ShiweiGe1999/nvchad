@@ -136,9 +136,9 @@ return {
           sorting_strategy = "ascending", -- Ensure results are ordered from top to bottom
           mappings = {
             n = {
-              ["q"] = actions.close
-            }
-          }
+              ["q"] = actions.close,
+            },
+          },
         },
         pickers = {
           live_grep = {
@@ -155,6 +155,17 @@ return {
       keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find recent files" })
       keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find string in cwd" })
       keymap.set("n", "<leader>gc", "<cmd>Telescope git commits<cr>", { desc = "Find todos" })
+    end,
+  },
+  {
+    "phaazon/hop.nvim",
+    as = "hop",
+    keys = { "s", "S" },
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
+      vim.api.nvim_set_keymap("n", "s", ":HopWord<cr>", {})
+      vim.api.nvim_set_keymap("n", "S", ":HopPattern<cr>", {})
     end,
   },
 }
