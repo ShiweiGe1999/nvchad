@@ -11,7 +11,6 @@ local custom_on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
-
   -- Telescope LSP key mappings
   local opts = { noremap = true, silent = true }
   buf_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
@@ -20,7 +19,7 @@ local custom_on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gs', '<cmd>Telescope lsp_document_symbols<CR>', opts)
   buf_set_keymap('n', 'gS', '<cmd>Telescope lsp_workspace_symbols<CR>', opts)
   buf_set_keymap('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', opts)
-  buf_set_keymap('n', 'gh', '<cmd>Telescope lsp_diagostics<CR>', opts)
+  buf_set_keymap('n', 'gh', '<cmd>lua require("telescope.builtin").diagnostics()<CR>', opts)
   -- Add more mappings as needed
 end
 
