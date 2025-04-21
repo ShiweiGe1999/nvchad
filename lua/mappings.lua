@@ -31,4 +31,6 @@ map("n", "<leader>cb", ":%bd|e#|bd#<CR>", { desc = "close all buffers except for
 map("n", "<leader>fr", '<cmd>Telescope resume<CR>', { desc = "Resume telescope" })
 map("n", "<leader>db", '<cmd>Telescope diagnostics bufnr=0<CR>', { desc = "Diagnostics current buffer" })
 map("n", "<leader>dw", '<cmd>Telescope diagnostics<CR>', { desc = "Diagnostics workspace" })
-
+vim.opt.clipboard = "unnamedplus"
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Show code actions", silent = true })
+map('n', '<leader>sh', vim.lsp.buf.signature_help, { desc = "Show signature help", silent = true })
