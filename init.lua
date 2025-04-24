@@ -34,4 +34,5 @@ require "nvchad.autocmds"
 
 vim.schedule(function()
   require "mappings"
+  vim.env.BEDROCK_KEYS = os.getenv("BEDROCK_KEYS")
 end)

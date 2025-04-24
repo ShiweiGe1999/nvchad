@@ -28,6 +28,7 @@ return {
         "javascript",
         "tsx",
         "json",
+        "go",
       },
     },
   },
