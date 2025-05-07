@@ -1,26 +1,73 @@
+local function set_aws_credentials()
+  -- Check if BEDROCK_KEYS is already defined by the user (e.g., in .zshrc)
+  local existing_keys = vim.fn.getenv("BEDROCK_KEYS")
+  if existing_keys and existing_keys ~= "" and existing_keys ~= vim.NIL then
+    vim.notify(string.format("Using existing BEDROCK_KEYS from environment"), vim.log.levels.INFO)
+    return nil
+  end
+
+  -- Try to get new credentials
+  local handle = io.popen("ada credentials print --profile=mcp 2>/dev/null")
+  if not handle then
+    vim.notify("Failed to execute ada credentials command", vim.log.levels.WARN)
+    return nil
+  end
+  local result = handle:read("*a")
+  local exit_code = handle:close()
+  -- Check if command executed successfully
+  if not exit_code then
+    vim.notify("ada credentials command failed", vim.log.levels.WARN)
+    return nil
+  end
+
+  -- Try to parse the JSON
+  local ok, creds = pcall(vim.json.decode, result)
+  if not ok or not creds or not creds.AccessKeyId or not creds.SecretAccessKey then
+    vim.notify("Failed to parse credentials from ada", vim.log.levels.WARN)
+    return nil
+  end
+
+  -- Create the credentials string
+  local bedrock_keys = string.format("%s,%s,%s",
+    creds.AccessKeyId,
+    creds.SecretAccessKey,
+    "us-west-2" -- aws_region
+  )
+  -- Add session token if present
+  if creds.SessionToken then
+    bedrock_keys = bedrock_keys .. "," .. creds.SessionToken
+  end
+
+  -- Export the BEDROCK_KEYS environment variable
+  vim.fn.setenv("BEDROCK_KEYS", bedrock_keys)
+
+  -- Create a marker file to indicate we've set the credentials
+  local marker_file = vim.fn.stdpath("cache") .. "/bedrock_keys_set_by_nvim"
+  local marker_handle = io.open(marker_file, "w")
+  if marker_handle then
+    marker_handle:write("1")
+    marker_handle:close()
+  end
+
+  vim.notify("AWS credentials updated successfully", vim.log.levels.INFO)
+  return nil
+end
+
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
-  opts = {
-    -- add any opts here
-    -- for example
-    provider = "bedrock",
-    bedrock = {
-      model = "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
-      max_tokens = 10000,
-      disable_tools = true,
+  opts = function()
+    set_aws_credentials()
+    return {
+      provider = "bedrock",
+      bedrock =  {
+        model = "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+        max_tokens = 15000
+      }
     }
-    -- openai = {
-    --   endpoint = "https://api.openai.com/v1",
-    --   model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-    --   timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-    --   temperature = 0,
-    --   max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-    --   --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-    -- },
-  },
-  -- disabled_tools = { "python", "web_search", "rag_search" },
+  end,
+  disabled_tools = { "python", "web_search", "rag_search"},
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
