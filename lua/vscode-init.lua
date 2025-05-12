@@ -124,15 +124,14 @@ M.setup = function()
         desc = "Sort lines"
     })
 
-    -- Flash.nvim integration
-    map({"n", "x", "o"}, "s", "<cmd>call VSCodeNotify('leap.find')<CR>", {
-        desc = "Flash jump (using VSCode Leap)"
+    -- Hop.nvim integration
+    map({"n", "x", "o"}, "s", "<cmd>lua require('hop').hint_words()<CR>", {
+        desc = "Hop words"
     })
 
-    -- Tree-sitter like functionality
-    -- VSCode doesn't have direct Tree-sitter integration, but we can map to similar functionality
-    map("n", "<leader>ts", "<cmd>call VSCodeNotify('editor.action.selectToBracket')<CR>", {
-        desc = "Select inside brackets (Tree-sitter like)"
+    -- Treesitter integration
+    map({"n", "x", "o"}, "S", "<cmd>call VSCodeNotify('editor.action.selectToBracket')<CR>", {
+        desc = "Treesitter-like selection"
     })
 
     -- Window management (additional)
@@ -146,6 +145,20 @@ M.setup = function()
         desc = "Close editor group"
     })
 
+    -- Panel navigation
+    map({"n", "t", "v"}, "<C-l>", "<cmd>call VSCodeNotify('workbench.action.navigateRight')<CR>", {
+        desc = "Navigate to right panel"
+    })
+    map({"n", "t", "v"}, "<C-h>", "<cmd>call VSCodeNotify('workbench.action.navigateLeft')<CR>", {
+        desc = "Navigate to left panel"
+    })
+    map({"n", "t", "v"}, "<C-j>", "<cmd>call VSCodeNotify('workbench.action.navigateDown')<CR>", {
+        desc = "Navigate to panel below"
+    })
+    map({"n", "t", "v"}, "<C-k>", "<cmd>call VSCodeNotify('workbench.action.navigateUp')<CR>", {
+        desc = "Navigate to panel above"
+    })
+
     -- Additional navigation
     map("n", "<C-o>", "<cmd>call VSCodeNotify('workbench.action.navigateBack')<CR>", {
         desc = "Navigate back"
@@ -155,13 +168,13 @@ M.setup = function()
     })
 
     -- Additional LSP features
-    map("n", "<leader>ds", "<cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>", {
+    map("n", "<leader>fs", "<cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>", {
         desc = "Document symbols"
     })
-    map("n", "<leader>ic", "<cmd>call VSCodeNotify('editor.action.showIncomingCalls')<CR>", {
+    map("n", "<leader>fi", "<cmd>call VSCodeNotify('editor.action.showIncomingCalls')<CR>", {
         desc = "Incoming calls"
     })
-    map("n", "<leader>oc", "<cmd>call VSCodeNotify('editor.action.showOutgoingCalls')<CR>", {
+    map("n", "<leader>fo", "<cmd>call VSCodeNotify('editor.action.showOutgoingCalls')<CR>", {
         desc = "Outgoing calls"
     })
 

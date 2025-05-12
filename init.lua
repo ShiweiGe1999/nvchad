@@ -3,6 +3,29 @@ vim.g.mapleader = " "
 -- Check if running inside VSCode
 if vim.g.vscode then
   -- VSCode-specific configuration
+  -- Load hop.nvim for VSCode integration
+  local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+  
+  if not vim.uv.fs_stat(lazypath) then
+    local repo = "https://github.com/folke/lazy.nvim.git"
+    vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+  end
+  
+  vim.opt.rtp:prepend(lazypath)
+  
+  require("lazy").setup({
+    {
+      "phaazon/hop.nvim",
+      branch = "v2",
+      config = function()
+        require("hop").setup({
+          keys = "etovxqpdygfblzhckisuran",
+          case_insensitive = true,
+        })
+      end,
+    },
+  })
+  
   require("vscode-init").setup()
 else
   -- Regular Neovim configuration
