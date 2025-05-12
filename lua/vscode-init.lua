@@ -187,33 +187,6 @@ M.setup = function()
         })
     map("n", "<Esc>", "<Esc>:noh<CR>", opts)
     
-    -- Enable Vim navigation in search panel
-    map("n", "<leader>sv", "<cmd>call VSCodeNotify('toggleSearchEditorRegex')<CR>", {
-        desc = "Toggle search with Vim regex"
-    })
-    
-    -- Search panel navigation with Vim keys
-    map("n", "/", "<cmd>call VSCodeNotify('actions.find')<CR>", {
-        desc = "Find in current file with Vim keys"
-    })
-    
-    -- Enable Vim keybindings in search panel
-    map("n", "n", "<cmd>call VSCodeNotify('editor.action.nextMatchFindAction')<CR>", {
-        desc = "Next search match"
-    })
-    map("n", "N", "<cmd>call VSCodeNotify('editor.action.previousMatchFindAction')<CR>", {
-        desc = "Previous search match"
-    })
-    
-    -- Terminal specific mappings
-    map("t", "<Esc>", "<C-\\><C-n>", {
-        desc = "Exit terminal insert mode",
-        silent = true
-    })
-    map("t", "jk", "<C-\\><C-n>", {
-        desc = "Exit terminal insert mode with jk",
-        silent = true
-    })
 end
 
 return M
