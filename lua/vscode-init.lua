@@ -30,12 +30,6 @@ M.setup = function()
     map("n", ";", ":", {
         desc = "CMD enter command mode"
     })
-    -- Fix jk to properly escape in VSCode
-    map("i", "jk", "<cmd>call VSCodeNotify('vscode-neovim.escape')<CR>", {
-        desc = "Exit insert mode",
-        silent = true
-    })
-
     -- Your existing clipboard operations
     map({"n", "v"}, "<leader>y", '"+y')
     map({"n", "v"}, "<leader>Y", '"+Y')
@@ -46,14 +40,6 @@ M.setup = function()
     map({"n", "v"}, "<leader>t", "<cmd>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>", {
         noremap = true,
         silent = true
-    })
-
-    -- Editor navigation (Tab and Shift+Tab)
-    map("n", "<Tab>", "<cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>", {
-        desc = "Next editor"
-    })
-    map("n", "<S-Tab>", "<cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>", {
-        desc = "Previous editor"
     })
 
     -- Format (matching your <leader>fm)
@@ -109,13 +95,13 @@ M.setup = function()
     map("n", "<leader>fb", "<cmd>call VSCodeNotify('workbench.action.showAllEditorsByMostRecentlyUsed')<CR>", {
         desc = "Find buffers"
     })
-    map("n", "<leader>fc", "<cmd>call VSCodeNotify('actions.find')<CR>", {
+    map("n", "<leader>fz", "<cmd>call VSCodeNotify('actions.find')<CR>", {
         desc = "Find in current file"
     })
     map("n", "<leader>fa", "<cmd>call VSCodeNotify('editor.action.startFindReplaceAction')<CR>", {
         desc = "Find and replace in current file"
     })
-    map("n", "<leader>fg", "<cmd>call VSCodeNotify('workbench.action.focusSearch')<CR>", {
+    map("n", "<leader>fw", "<cmd>call VSCodeNotify('workbench.action.focusSearch')<CR>", {
         desc = "Navigate to global search results"
     })
 
