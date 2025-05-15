@@ -30,6 +30,11 @@ M.setup = function()
     map("n", ";", ":", {
         desc = "CMD enter command mode"
     })
+    
+    -- Command palette
+    map("n", "<leader><leader>", "<cmd>call VSCodeNotify('workbench.action.showCommands')<CR>", {
+        desc = "Open command palette"
+    })
     -- Your existing clipboard operations
     map({"n", "v"}, "<leader>y", '"+y')
     map({"n", "v"}, "<leader>Y", '"+Y')
@@ -50,6 +55,11 @@ M.setup = function()
     -- Close all buffers except current (matching your <leader>cb)
     map("n", "<leader>cb", "<cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>", {
         desc = "close all buffers except for the current one"
+    })
+    
+    -- Close current buffer
+    map("n", "<leader>x", "<cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>", {
+        desc = "Close current buffer"
     })
 
     -- Search/Find (matching your <leader>fr for telescope resume)
@@ -77,7 +87,7 @@ M.setup = function()
     map("n", "gi", "<cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>", {
         desc = "Go to implementation"
     })
-    map("n", "gy", "<cmd>call VSCodeNotify('editor.action.goToTypeDefinition')<CR>", {
+    map("n", "gt", "<cmd>call VSCodeNotify('editor.action.goToTypeDefinition')<CR>", {
         desc = "Go to type definition"
     })
     map("n", "<leader>rn", "<cmd>call VSCodeNotify('editor.action.rename')<CR>", {
@@ -130,6 +140,9 @@ M.setup = function()
     map("n", "<leader>wc", "<cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>", {
         desc = "Close editor group"
     })
+    map("n", "<leader>tz", "<cmd>call VSCodeNotify('workbench.action.toggleZenMode')<CR>", {
+        desc = "Toggle zen mode"
+    })
 
     -- Panel navigation
     map({"n", "t", "v"}, "<C-l>", "<cmd>call VSCodeNotify('workbench.action.navigateRight')<CR>", {
@@ -163,6 +176,9 @@ M.setup = function()
     map("n", "<leader>fo", "<cmd>call VSCodeNotify('editor.action.showOutgoingCalls')<CR>", {
         desc = "Outgoing calls"
     })
+    map("n", "<leader>/", "<cmd>call VSCodeNotify('editor.action.addCommentLinjke')<CR>", {
+        desc = "Outgoing calls"
+    })
 
     -- Fix Escape key to exit search/find mode
     map("n", "<ESC>",
@@ -173,6 +189,42 @@ M.setup = function()
         })
     map("n", "<Esc>", "<Esc>:noh<CR>", opts)
     
+    -- Terminal mappings (additional)
+    map({"n", "v"}, "<leader>tt", "<cmd>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>", {
+        desc = "Toggle terminal panel"
+    })
+    map({"n", "v"}, "<leader>ts", "<cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>", {
+        desc = "Show terminal sidebar"
+    })
+    map({"n", "v"}, "<leader>tn", "<cmd>call VSCodeNotify('terminal.new')<CR>", {
+        desc = "New terminal instance"
+    })
+    map({"n", "v"}, "<leader>tk", "<cmd>call VSCodeNotify('workbench.action.terminal.kill')<CR>", {
+        desc = "Kill terminal instance"
+    })
+    
+    -- Fold mappings
+    map("n", "za", "<cmd>call VSCodeNotify('editor.toggleFold')<CR>", {
+        desc = "Toggle fold under cursor"
+    })
+    map("n", "zc", "<cmd>call VSCodeNotify('editor.fold')<CR>", {
+        desc = "Fold region at cursor"
+    })
+    map("n", "zo", "<cmd>call VSCodeNotify('editor.unfold')<CR>", {
+        desc = "Unfold region at cursor"
+    })
+    map("n", "zM", "<cmd>call VSCodeNotify('editor.foldAll')<CR>", {
+        desc = "Fold all regions"
+    })
+    map("n", "zR", "<cmd>call VSCodeNotify('editor.unfoldAll')<CR>", {
+        desc = "Unfold all regions"
+    })
+    map("n", "<leader>zf", "<cmd>call VSCodeNotify('editor.foldRecursively')<CR>", {
+        desc = "Fold recursively"
+    })
+    map("n", "<leader>zu", "<cmd>call VSCodeNotify('editor.unfoldRecursively')<CR>", {
+        desc = "Unfold recursively"
+    })
 end
 
 return M
