@@ -111,7 +111,7 @@ M.setup = function()
     map("n", "<leader>fa", "<cmd>call VSCodeNotify('editor.action.startFindReplaceAction')<CR>", {
         desc = "Find and replace in current file"
     })
-    map("n", "<leader>fw", "<cmd>call VSCodeNotify('workbench.action.focusSearch')<CR>", {
+    map("n", "<leader>fw", "<cmd>call VSCodeNotify('workbench.action.quickTextSearch')<CR>", {
         desc = "Navigate to global search results"
     })
 
