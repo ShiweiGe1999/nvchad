@@ -176,7 +176,7 @@ M.setup = function()
     map("n", "<leader>fo", "<cmd>call VSCodeNotify('editor.action.showOutgoingCalls')<CR>", {
         desc = "Outgoing calls"
     })
-    map("n", "<leader>/", "<cmd>call VSCodeNotify('editor.action.addCommentLinjke')<CR>", {
+    map("n", "<leader>/", "<cmd>call VSCodeNotify('editor.action.addCommentLine')<CR>", {
         desc = "Outgoing calls"
     })
 
