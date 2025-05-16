@@ -71,11 +71,11 @@ M.setup = function()
     map({"n", "v"}, "<leader>sp", "<cmd>lua require('vscode').action('workbench.actions.view.problems')<CR>")
 
     -- LSP actions (matching your <leader>ca and <leader>sh)
-    map("n", "<leader>ca", "<cmd>call VSCodeNotify('editor.action.quickFix')<CR>", {
-        desc = "Show code actions",
+    map("n", "<leader>ca", "<cmd>call VSCodeNotify('editor.action.codeAction', {'preferred': 'true'})<CR>", {
+        desc = "Show all code actions",
         silent = true
     })
-    map({"n", "v"}, "<leader>sh", "<cmd>lua require('vscode').action('editor.action.showHover')<CR>")
+    map({"n", "v"}, "K", "<cmd>lua require('vscode').action('editor.action.showHover')<CR>")
 
     -- Additional LSP features
     map("n", "gd", "<cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>", {
