@@ -71,8 +71,14 @@ M.setup = function()
     map({"n", "v"}, "<leader>sp", "<cmd>lua require('vscode').action('workbench.actions.view.problems')<CR>")
 
     -- LSP actions (matching your <leader>ca and <leader>sh)
-    map("n", "<leader>ca", "<cmd>call VSCodeNotify('editor.action.codeAction', {'preferred': 'true'})<CR>", {
+    -- Show all code actions including ESLint
+    map("n", "<leader>ca", "<cmd>call VSCodeNotify('editor.action.quickFix')<CR>", {
         desc = "Show all code actions",
+        silent = true
+    })
+    -- Additional mapping for source actions (ESLint, etc)
+    map("n", "<leader>cs", "<cmd>call VSCodeNotify('editor.action.sourceAction')<CR>", {
+        desc = "Show source actions (ESLint)",
         silent = true
     })
     map({"n", "v"}, "K", "<cmd>lua require('vscode').action('editor.action.showHover')<CR>")
