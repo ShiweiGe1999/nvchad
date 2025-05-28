@@ -1,0 +1,316 @@
+{
+  "whichkey.bindings": [
+    {
+      "key": " ",
+      "name": "Commands",
+      "type": "command",
+      "command": "workbench.action.showCommands"
+    },
+    {
+      "key": "/",
+      "name": "Comment line/selection",
+      "type": "command",
+      "command": "editor.action.commentLine"
+    },
+    {
+      "key": "y",
+      "name": "Yank to system clipboard"
+    },
+    {
+      "key": "Y",
+      "name": "Yank line to system clipboard"
+    },
+    {
+      "key": "p",
+      "name": "Paste from system clipboard"
+    },
+    {
+      "key": "P",
+      "name": "Paste before from system clipboard"
+    },
+    {
+      "key": "t",
+      "name": "Terminal",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "t",
+          "name": "Toggle terminal panel",
+          "type": "command",
+          "command": "workbench.action.terminal.toggleTerminal"
+        },
+        {
+          "key": "s",
+          "name": "Show terminal sidebar",
+          "type": "command",
+          "command": "workbench.action.toggleSidebarVisibility"
+        },
+        {
+          "key": "n",
+          "name": "New terminal instance",
+          "type": "command",
+          "command": "terminal.new"
+        },
+        {
+          "key": "k",
+          "name": "Kill terminal instance",
+          "type": "command",
+          "command": "workbench.action.terminal.kill"
+        }
+      ]
+    },
+    {
+      "key": "x",
+      "name": "Close current buffer",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
+    },
+    {
+      "key": "e",
+      "name": "Toggle explorer",
+      "type": "command",
+      "command": "workbench.view.explorer"
+    },
+    {
+      "key": "rn",
+      "name": "Rename symbol",
+      "type": "command",
+      "command": "editor.action.rename"
+    },
+    {
+      "key": "cb",
+      "name": "Close all buffers except current",
+      "type": "command",
+      "command": "workbench.action.closeOtherEditors"
+    },
+    {
+      "key": "fm",
+      "name": "Format document",
+      "type": "command",
+      "command": "editor.action.formatDocument"
+    },
+    {
+      "key": "tz",
+      "name": "Toggle zen mode",
+      "type": "command",
+      "command": "workbench.action.toggleZenMode"
+    },
+    {
+      "key": "f",
+      "name": "Find/File",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Find files",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+        },
+        {
+          "key": "b",
+          "name": "Find buffers",
+          "type": "command",
+          "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+        },
+        {
+          "key": "z",
+          "name": "Find in current file",
+          "type": "command",
+          "command": "actions.find"
+        },
+        {
+          "key": "a",
+          "name": "Find and replace in current file",
+          "type": "command",
+          "command": "editor.action.startFindReplaceAction"
+        },
+        {
+          "key": "w",
+          "name": "Navigate to global search results",
+          "type": "command",
+          "command": "workbench.action.quickTextSearch"
+        },
+        {
+          "key": "r",
+          "name": "Resume recent",
+          "type": "command",
+          "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor"
+        },
+        {
+          "key": "s",
+          "name": "Document symbols",
+          "type": "command",
+          "command": "workbench.action.gotoSymbol"
+        },
+        {
+          "key": "i",
+          "name": "Incoming calls",
+          "type": "command",
+          "command": "editor.action.showIncomingCalls"
+        },
+        {
+          "key": "o",
+          "name": "Outgoing calls",
+          "type": "command",
+          "command": "editor.action.showOutgoingCalls"
+        }
+      ]
+    },
+    {
+      "key": "g",
+      "name": "Git",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "b",
+          "name": "Switch branch",
+          "type": "command",
+          "command": "git.checkout"
+        },
+        {
+          "key": "i",
+          "name": "Initialize git",
+          "type": "command",
+          "command": "git.init"
+        },
+        {
+          "key": "d",
+          "name": "Delete branch",
+          "type": "command",
+          "command": "git.deleteBranch"
+        },
+        {
+          "key": "f",
+          "name": "Fetch",
+          "type": "command",
+          "command": "git.fetch"
+        },
+        {
+          "key": "s",
+          "name": "Status",
+          "type": "command",
+          "command": "workbench.view.scm"
+        },
+        {
+          "key": "p",
+          "name": "Pull",
+          "type": "command",
+          "command": "git.pull"
+        },
+        {
+          "key": "g",
+          "name": "Graph",
+          "type": "command",
+          "command": "gitlens.showGraphPage"
+        }
+      ]
+    },
+    {
+      "key": "m",
+      "name": "Bookmarks",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "t",
+          "name": "Toggle bookmark",
+          "type": "command",
+          "command": "bookmarks.toggle"
+        },
+        {
+          "key": "l",
+          "name": "List bookmarks",
+          "type": "command",
+          "command": "bookmarks.list"
+        },
+        {
+          "key": "n",
+          "name": "Next bookmark",
+          "type": "command",
+          "command": "bookmarks.jumpToNext"
+        },
+        {
+          "key": "p",
+          "name": "Previous bookmark",
+          "type": "command",
+          "command": "bookmarks.jumpToPrevious"
+        }
+      ]
+    },
+    {
+      "key": "c",
+      "name": "Code",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "Show all code actions",
+          "type": "command",
+          "command": "editor.action.quickFix"
+        },
+        {
+          "key": "s",
+          "name": "Show source actions (ESLint)",
+          "type": "command",
+          "command": "editor.action.sourceAction"
+        }
+      ]
+    },
+    {
+      "key": "w",
+      "name": "Window",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "v",
+          "name": "Split vertically",
+          "type": "command",
+          "command": "workbench.action.splitEditorRight"
+        },
+        {
+          "key": "h",
+          "name": "Split horizontally",
+          "type": "command",
+          "command": "workbench.action.splitEditorDown"
+        },
+        {
+          "key": "c",
+          "name": "Close editor group",
+          "type": "command",
+          "command": "workbench.action.closeEditorsInGroup"
+        }
+      ]
+    },
+    {
+      "key": "s",
+      "name": "Search/Problems",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "p",
+          "name": "Show problems",
+          "type": "command",
+          "command": "workbench.actions.view.problems"
+        }
+      ]
+    },
+    {
+      "key": "z",
+      "name": "Fold",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Fold recursively",
+          "type": "command",
+          "command": "editor.foldRecursively"
+        },
+        {
+          "key": "u",
+          "name": "Unfold recursively",
+          "type": "command",
+          "command": "editor.unfoldRecursively"
+        }
+      ]
+    }
+  ]
+}
