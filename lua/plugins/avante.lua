@@ -61,12 +61,17 @@ return {
     set_aws_credentials()
     return {
       provider = "bedrock_sonnet",
+      behaviour = {
+        enable_cursor_planning_mode = true, -- enable cursor planning mode!
+      },
       providers = {
         bedrock_sonnet = {
           __inherited_from = "bedrock",
           model = "us.anthropic.claude-sonnet-4-20250514-v1:0",
           extra_request_body = {
             max_tokens = 8192,
+            temperature = 0.1,
+            top_p = 0.9,
           }
         },
       }
