@@ -33,4 +33,4 @@ map("n", "<leader>db", '<cmd>Telescope diagnostics bufnr=0<CR>', { desc = "Diagn
 map("n", "<leader>dw", '<cmd>Telescope diagnostics<CR>', { desc = "Diagnostics workspace" })
 vim.opt.clipboard = "unnamedplus"
 map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Show code actions", silent = true })
-map('n', '<leader>sh', vim.lsp.buf.signature_help, { desc = "Show signature help", silent = true })
+map('n', 'K', vim.lsp.buf.signature_help, { desc = "Show signature help", silent = true })
