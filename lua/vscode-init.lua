@@ -311,6 +311,8 @@ M.setup = function()
     map("n", "<leader>cb", "<cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>", {
         desc = "close all buffers except for the current one"
     })
+    vim.keymap.set({'n'}, "H", workbench.previousEditor)
+    vim.keymap.set({'n'}, "L", workbench.nextEditor)
 
     -- bookmark
     vim.keymap.set({'n'}, "<leader>m", bookmark.toggle)
