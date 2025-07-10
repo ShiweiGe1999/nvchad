@@ -10,6 +10,7 @@ local nvlsp = require "nvchad.configs.lspconfig"
 local ooo = function(client, bufnr)
   nvlsp.on_attach(client, bufnr)
   -- map HERE
+  vim.keymap.set("n", "gd", "<cmd> Telescope<cr>", { buffer = bufnr })
   vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr })
   vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr })
   vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = bufnr })
