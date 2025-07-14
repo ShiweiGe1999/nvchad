@@ -3,7 +3,7 @@ return {
   version = "*", -- This ensures you always get the latest version
   config = function()
     require("toggleterm").setup {
-      size = 60,
+      size = 20,
       open_mapping = [[<F7>]],
       hide_numbers = true,
       shade_filetypes = {},
@@ -13,7 +13,7 @@ return {
       insert_mappings = true,
       terminal_mappings = true,
       persist_size = true,
-      direction = "vertical",
+      direction = "horizontal",
       close_on_exit = true,
       shell = vim.o.shell,
     }
