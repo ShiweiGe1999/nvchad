@@ -75,6 +75,12 @@ return {
             top_p = 0.9,
           }
         },
+      },
+      windows = {
+        width = 40,
+        input = {
+          height = 12
+        }
       }
     }
   end,
