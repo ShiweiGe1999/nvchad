@@ -32,6 +32,6 @@ map("n", "<leader>gs", '<cmd>Telescope git_stash<CR>', { desc = "Git stashes" })
 map("n", "<leader>fr", '<cmd>Telescope resume<CR>', { desc = "Resume telescope" })
 map("n", "<leader>db", '<cmd>Telescope diagnostics bufnr=0<CR>', { desc = "Diagnostics current buffer" })
 map("n", "<leader>dw", '<cmd>Telescope diagnostics<CR>', { desc = "Diagnostics workspace" })
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Show code actions", silent = true })
 map('n', 'K', vim.lsp.buf.signature_help, { desc = "Show signature help", silent = true })

@@ -11,7 +11,8 @@ return {
       "eslint-lsp",
       "eslint_d",
       "tailwindcss-language-server",
-      "gofumpt"
+      "gofumpt",
+      "win32yank"
     },
   },
 }

@@ -28,6 +28,22 @@ if vim.g.vscode then
 
   require("vscode-init").setup()
 else
+  vim.opt.clipboard = "unnamedplus"
+
+  if vim.fn.has("wsl") then
+    vim.g.clipboard = {
+      name = "clip.exe (Copy Only)",
+      copy = {
+        ["+"] = "clip.exe",
+        ["*"] = "clip.exe"
+      },
+      paste = {
+        ["+"] = "clip.exe",
+        ["*"] = "clip.exe"
+      },
+      cache_enabled = true
+    }
+  end
   -- Regular Neovim configuration
   vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 
@@ -42,7 +58,6 @@ else
   vim.opt.rtp:prepend(lazypath)
 
   local lazy_config = require "configs.lazy"
-
   -- load plugins
   require("lazy").setup({
     {
