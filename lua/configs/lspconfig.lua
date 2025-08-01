@@ -4,7 +4,9 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ts_ls", "eslint", "tailwindcss", 'pylsp', 'golangci_lint_ls', 'gopls', 'lua_ls'}
+local servers = { "html", "cssls", "ts_ls", "eslint", "tailwindcss", 'pylsp',
+  'golangci_lint_ls', 'gopls', 'lua_ls', "clangd"
+}
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local ooo = function(client, bufnr)

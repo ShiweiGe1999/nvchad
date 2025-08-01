@@ -9,6 +9,7 @@ local options = {
     javascriptreact = { "eslint_d, prettier" },
     typescriptreact = { "eslint_d, prettier" },
     go = { "gofumpt" },
+    cpp = { "clang-format" }
   },
 
   -- format_on_save = {
